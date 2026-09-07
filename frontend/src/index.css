@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #070D18;
+    color: #d9e2fd;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/* Custom Telemetry Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070D18;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E3557;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D2D3;
+}
+
+/* Glowing text effects */
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 210, 211, 0.5);
+}
+.text-glow-red {
+  text-shadow: 0 0 25px rgba(235, 35, 35, 0.6);
+}
+
+/* Print Specific Receipt Styles (Strict 1 Page) */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  /* Completely collapse and remove main landing page flow from print document */
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  #root {
+    display: none !important;
+  }
+}
+
